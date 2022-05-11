@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManagementStudent</title>
+    <title>ManagermentStudent</title>
 </head>
+
 <body>
     <h1>Chi tiết thông tin sinh viên</h1>
     <table>
@@ -14,15 +16,22 @@
             <th>Tên sinh viên</th>
             <th>Tuổi</th>
             <th>Tên trường đại học</th>
+            <th>Thao tác</th>
         </tr>
-     
-             <?php
-             echo "số lượng phần tử trong mảng sv".sizeof($listStudent);
-             foreach($listStudent as $student){
-                 echo "<tr> <td>".$student->id."</td> <td>".$student->name."</td> <td>".$student->age."</td> <td>".$student->university."</td> </tr>";
-             }
-             ?>
-        
+
+<?php
+
+        while($DataRows = $resultDataStudent->fetch_assoc()){
+            echo "<tr>";
+            echo "<td>".$DataRows["id"]."</td>";
+            echo "<td>".$DataRows["namestudent"]."</td>";
+            echo "<td>".$DataRows["age"]."</td>";
+            echo "<td>".$DataRows["university"]."</td>"; 
+            echo "<td><a href='/MANAGEMENTSTUDENT/Student/DeleteStudent/".$DataRows["id"]."'><button>xóa</button></a><a href='/MANAGEMENTSTUDENT/Student/ViewUpdateStudent/".$DataRows["id"]."'><button>sửa</button></td></a>";
+            echo "</tr>";
+        }
+?>
     </table>
 </body>
+
 </html>

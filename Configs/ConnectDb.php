@@ -2,15 +2,15 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpassword = "";
-
+$dbmanagementstudent = "managementstudent";
 // connectObject quản lý chuỗi kết nối my sql
-$connectObject = new mysqli($dbhost, $dbuser, $dbpassword);
-if($connectObject->connect_error){
-    die("connection die".$connectObject->connect_error);
+$connect = new mysqli($dbhost, $dbuser, $dbpassword, $dbmanagementstudent);
+if($connect->connect_error){
+    die("connection die".$connect->connect_error);
 }
     echo "Connect Succsessful !";
 
-mysqli_close($connectObject);
+//mysqli_close($connectObject);
 
 
 ?>
